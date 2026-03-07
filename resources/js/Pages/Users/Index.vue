@@ -1,14 +1,27 @@
 <template>
-  <div style="padding: 2rem;">
-    <h1>Users</h1>
+  <div class="app-page">
+    <nav class="app-nav">
+      <Link href="/">Home</Link>
+      <span>/</span>
+      <span>Users</span>
+    </nav>
+    <h1 class="mb-6">Users</h1>
 
-    <Link href="/users/create">Create User</Link>
+    <Link
+      href="/users/create"
+      class="app-btn app-btn--primary"
+    >
+      Create User
+    </Link>
 
-    <div v-if="$page.props.flash?.message" style="margin: 1rem 0; color: green;">
+    <div
+      v-if="$page.props.flash?.message"
+      class="app-flash app-flash--success"
+    >
       {{ $page.props.flash.message }}
     </div>
 
-    <table border="1" cellpadding="10" cellspacing="0" style="margin-top: 1rem; width: 100%;">
+    <table class="mt-6">
       <thead>
         <tr>
           <th>ID</th>
@@ -23,8 +36,21 @@
           <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>
           <td>
-            <Link :href="`/users/${user.id}/edit`">Edit</Link>
-            <button @click="deleteUser(user.id)" style="margin-left: 10px;">Delete</button>
+            <div class="app-actions">
+              <Link
+                :href="`/users/${user.id}/edit`"
+                class="app-btn app-btn--primary"
+              >
+                Edit
+              </Link>
+              <button
+                type="button"
+                class="app-btn app-btn--danger"
+                @click="deleteUser(user.id)"
+              >
+                Delete
+              </button>
+            </div>
           </td>
         </tr>
       </tbody>
