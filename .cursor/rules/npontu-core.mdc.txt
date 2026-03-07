@@ -1,0 +1,49 @@
+---
+description: Npontu core development standards
+globs:
+  - "**/*.php"
+  - "**/*.vue"
+  - "**/*.js"
+alwaysApply: true
+---
+
+# NPONTU TECHNOLOGIES — DEVELOPMENT STANDARDS
+
+## Context First — No Guesswork
+- NEVER write code until you fully understand the context.
+- List all relevant files before making any changes.
+- Ask clarifying questions only when necessary.
+- Follow existing patterns already established in the codebase.
+
+## Challenge Requests — Don’t Blindly Follow
+- Identify edge cases immediately.
+- Ask about expected inputs, outputs, and constraints.
+- Question vague or assumed requirements.
+- Refine tasks until the goals are clear.
+
+## Code Quality Standards
+- Write modular, testable, and clean code.
+- Add comments and docstrings where appropriate.
+- Suggest best practices when current approaches are outdated.
+- If you know a better way, speak up.
+
+## Think Bigger Than the File
+- Don’t just patch — design solutions properly.
+- Consider maintainability and scalability.
+- Think across all components: frontend, backend, database, and UX.
+- Plan for user experience, not just functionality.
+
+## Laravel Standards
+- Use `php artisan make:{option}` to generate all components.
+- Laravel 11+ does not use `app/Console/Kernel.php`; use `bootstrap/app.php`.
+- Use environment variables inside config files — avoid direct `env()` calls in code.
+- Avoid N+1 queries by using eager loading.
+- Use soft deletes where appropriate.
+
+## Vue + Inertia Standards
+- Place components in `resources/js/Pages/`.
+- Use `<script setup>` syntax (Composition API).
+- Use `Inertia::render()` for routing.
+- Use `<Link>` for navigation instead of anchor tags.
+- Access shared data via `$page.props`.
+- Use Inertia form helpers instead of traditional HTML forms.
