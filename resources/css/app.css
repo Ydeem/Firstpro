@@ -162,6 +162,41 @@ tbody tr:last-child td {
   margin: 0 auto;
 }
 
+.app-page--crud {
+  position: relative;
+  min-height: 100vh;
+}
+
+.app-page--crud::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('/assets/npontu/crud-bg.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: -1;
+  transform: scale(1.05) translate3d(0, 0, 0);
+  animation: crudBgDrift 18s ease-in-out infinite;
+}
+
+@keyframes crudBgDrift {
+  0%,
+  100% {
+    transform: scale(1.05) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: scale(1.06) translate3d(1.2%, -0.8%, 0);
+  }
+  50% {
+    transform: scale(1.07) translate3d(-1.4%, 0.9%, 0);
+  }
+  75% {
+    transform: scale(1.06) translate3d(0.6%, 0.4%, 0);
+  }
+}
+
 .app-nav {
   display: flex;
   align-items: center;
@@ -194,13 +229,122 @@ tbody tr:last-child td {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-primary-muted) 50%, var(--color-surface) 100%);
+  background: #0b1220;
+}
+
+.home-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Neptune Point motion background: video or image + parallax */
+.neptune-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.neptune-motion {
+  background: linear-gradient(180deg, #7dd3fc 0%, #0ea5e9 40%, #0b1220 100%);
+}
+
+.neptune-layer {
+  position: absolute;
+  inset: -4%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+
+.neptune-layer--back {
+  animation: neptuneDriftBack 5s ease-in-out infinite;
+  filter: saturate(0.95) brightness(0.85);
+  z-index: 0;
+}
+
+.neptune-layer--mid {
+  animation: neptuneDriftMid 5s ease-in-out infinite;
+  filter: saturate(1.05) contrast(1.03) brightness(0.92);
+  z-index: 1;
+}
+
+/* Soft ambient sky motion (gradient only) */
+.neptune-layer--ambient {
+  background: none;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    transparent 30%,
+    transparent 70%,
+    rgba(0, 0, 0, 0.02) 100%
+  );
+  animation: neptuneAmbient 5s ease-in-out infinite;
+  z-index: 2;
+}
+
+/* 5s seamless loop: start and end states match */
+@keyframes neptuneDriftBack {
+  0%,
+  100% {
+    transform: scale(1.08) translate3d(0%, 0%, 0);
+  }
+  25% {
+    transform: scale(1.09) translate3d(0.3%, 0.15%, 0);
+  }
+  50% {
+    transform: scale(1.10) translate3d(-0.2%, 0.25%, 0);
+  }
+  75% {
+    transform: scale(1.09) translate3d(-0.15%, -0.1%, 0);
+  }
+}
+
+@keyframes neptuneDriftMid {
+  0%,
+  100% {
+    transform: scale(1.06) translate3d(0%, 0%, 0);
+  }
+  25% {
+    transform: scale(1.07) translate3d(-0.25%, -0.12%, 0);
+  }
+  50% {
+    transform: scale(1.08) translate3d(0.15%, -0.2%, 0);
+  }
+  75% {
+    transform: scale(1.07) translate3d(0.1%, 0.08%, 0);
+  }
+}
+
+@keyframes neptuneAmbient {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.92;
+  }
+}
+
+.home-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(70% 60% at 50% 40%, rgba(15, 23, 42, 0.25) 0%, rgba(15, 23, 42, 0.78) 100%),
+    linear-gradient(180deg, rgba(2, 6, 23, 0.35) 0%, rgba(2, 6, 23, 0.55) 45%, rgba(2, 6, 23, 0.75) 100%);
+  z-index: 1;
 }
 
 .home-nav {
   position: absolute;
   top: 1.5rem;
   right: 2rem;
+  z-index: 3;
 }
 
 .home-nav a {
@@ -217,20 +361,28 @@ tbody tr:last-child td {
   text-align: center;
   padding: 3rem 2rem;
   max-width: 560px;
+  z-index: 2;
+  border-radius: var(--radius-xl);
+  background: rgba(15, 23, 42, 0.42);
+  border: 1px solid rgba(226, 232, 240, 0.18);
+  box-shadow: 0 18px 55px rgba(2, 6, 23, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .home-title {
   font-size: 2.25rem;
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: var(--color-text);
+  color: rgba(255, 255, 255, 0.98);
   margin-bottom: 0.75rem;
   line-height: 1.2;
+  text-shadow: 0 10px 26px rgba(2, 6, 23, 0.45);
 }
 
 .home-subtitle {
   font-size: 1.125rem;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.82);
   margin-bottom: 2rem;
   line-height: 1.6;
 }
@@ -238,6 +390,23 @@ tbody tr:last-child td {
 .home-cta {
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .neptune-layer,
+  .neptune-layer--back,
+  .neptune-layer--mid,
+  .neptune-layer--ambient {
+    animation: none !important;
+    transform: scale(1.06) translate3d(0, 0, 0);
+  }
+  .neptune-layer--ambient {
+    opacity: 1;
+  }
+  .app-page--crud::before {
+    animation: none !important;
+    transform: scale(1.0) translate3d(0, 0, 0);
+  }
 }
 
 /* ========== Flash / alerts ========== */

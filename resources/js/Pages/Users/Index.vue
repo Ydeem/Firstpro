@@ -1,5 +1,5 @@
 <template>
-  <div class="app-page">
+  <div class="app-page app-page--crud">
     <nav class="app-nav">
       <Link href="/">Home</Link>
       <span>/</span>
