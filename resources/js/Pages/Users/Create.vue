@@ -54,7 +54,7 @@
           <button type="submit" class="app-btn app-btn--primary">
             Save
           </button>
-          <Link href="/users" class="app-btn app-btn--secondary">
+          <Link href="/users/access" class="app-btn app-btn--secondary">
             Cancel
           </Link>
         </div>

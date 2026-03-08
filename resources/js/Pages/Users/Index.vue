@@ -1,9 +1,19 @@
 <template>
   <div class="app-page app-page--crud">
     <nav class="app-nav">
-      <Link href="/">Home</Link>
-      <span>/</span>
-      <span>Users</span>
+      <div>
+        <Link href="/">Home</Link>
+        <span>/</span>
+        <span>Users</span>
+      </div>
+      <button
+        type="button"
+        class="app-btn app-btn--secondary"
+        style="margin-left: auto"
+        @click="logout"
+      >
+        Logout
+      </button>
     </nav>
     <h1 class="mb-6">Users</h1>
 
@@ -69,5 +79,9 @@ const deleteUser = (id) => {
   if (confirm('Are you sure you want to delete this user?')) {
     router.delete(`/users/${id}`)
   }
+}
+
+const logout = () => {
+  router.post('/logout')
 }
 </script>

@@ -27,12 +27,12 @@
       <div class="home-bg-overlay"></div>
     </div>
     <nav class="home-nav">
-      <Link href="/users">Users</Link>
+      <Link href="/login">Login</Link>
     </nav>
     <div class="home-hero">
       <h1 class="home-title">Welcome to Npontu Technologies</h1>
       <p class="home-subtitle">User Management Dashboard</p>
-      <Link href="/users" class="app-btn app-btn--primary home-cta">
+      <Link href="/users/access" class="app-btn app-btn--primary home-cta">
         View Users
       </Link>
     </div>

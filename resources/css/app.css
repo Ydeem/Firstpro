@@ -206,6 +206,10 @@ tbody tr:last-child td {
   border-bottom: 1px solid var(--color-border);
 }
 
+.app-nav--space {
+  justify-content: space-between;
+}
+
 .app-nav a {
   font-size: 0.875rem;
   font-weight: 500;
@@ -230,6 +234,141 @@ tbody tr:last-child td {
   align-items: center;
   justify-content: center;
   background: #0b1220;
+}
+
+/* ========== Access Users page ========== */
+.access-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.access-main {
+  max-width: 560px;
+  padding: 2rem 2.25rem;
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.95),
+    rgba(30, 41, 59, 0.95),
+    rgba(15, 23, 42, 0.95)
+  );
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.access-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(129, 140, 248, 0.2);
+  color: rgba(191, 219, 254, 1);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.access-title {
+  font-size: 2.35rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 0.75rem;
+}
+
+.access-subtitle {
+  color: rgba(226, 232, 240, 0.98);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+
+.access-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.access-btn {
+  min-width: 180px;
+  font-size: 1rem;
+  padding: 0.6rem 1.25rem;
+}
+
+.access-btn--primary {
+  box-shadow: 0 14px 45px rgba(59, 130, 246, 0.45);
+}
+
+.access-illustration {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.access-card {
+  position: relative;
+  max-width: 420px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.25), transparent 54%),
+    radial-gradient(circle at bottom right, rgba(129, 140, 248, 0.4), transparent 55%),
+    #020617;
+}
+
+.access-image {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  mix-blend-mode: screen;
+  opacity: 0.95;
+  transform: scale(1.04);
+}
+
+.access-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.1rem 1.4rem 1.25rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.9),
+    rgba(15, 23, 42, 0.8),
+    rgba(30, 64, 175, 0.9)
+  );
+}
+
+.access-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(148, 163, 184, 0.95);
+  margin-bottom: 0.25rem;
+}
+
+.access-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(248, 250, 252, 0.98);
+}
+
+@media (max-width: 900px) {
+  .access-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .access-illustration {
+    justify-content: flex-start;
+    margin-top: 2rem;
+  }
 }
 
 .home-bg {
@@ -505,6 +644,21 @@ tbody tr:last-child td {
   font-size: 0.8125rem;
   color: var(--color-danger);
   margin-top: 0.375rem;
+}
+
+.app-form-hint {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.app-form-hint a {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.app-form-hint a:hover {
+  text-decoration: underline;
 }
 
 .app-form-actions {

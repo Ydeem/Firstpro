@@ -8,8 +8,8 @@ const checkbox = ref(false);
 const show1 = ref(false);
 
 const form = useForm({
-  email: 'pontian@npontu.com',
-  password: 'password12#',
+  email: '',
+  password: '',
   remember: false,
 });
 
@@ -17,7 +17,7 @@ const form = useForm({
 const passwordRules = ref([
   (v: string) => !!v || 'Password is required',
   (v: string) => v === v.trim() || 'Password cannot start or end with spaces',
-  (v: string) => v.length <= 10 || 'Password must be less than 10 characters'
+  (v: string) => v.length >= 8 || 'Password must be at least 8 characters',
 ]);
 // Email validation rules
 const emailRules = ref([
@@ -40,7 +40,12 @@ function validate(_values: unknown, { setErrors }: { setErrors: (e: Record<strin
 
 <template>
   <div class="d-flex justify-space-between align-center mt-4">
-    <h3 class="text-h3 text-center mb-0">Login</h3>
+    <div>
+      <h3 class="text-h3 text-center mb-1">Login</h3>
+      <p class="text-body-2 text-medium-emphasis mb-0">
+        Use the email you registered with and a password of at least 8 characters.
+      </p>
+    </div>
     <Link href="/register1" class="text-primary text-decoration-none">Don't Have an account?</Link>
   </div>
   <Form @submit="validate" class="mt-7 loginForm" v-slot="{ errors, isSubmitting }">
